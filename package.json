@@ -1,0 +1,24 @@
+{
+  "name": "automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules\\.bin\\cypress run",
+    "headTest": "npm run test -- --headed",
+    "chromeTest": "npm run test -- --browser chrome",
+    "recordDashBoardTest": "npm run test -- --record --key c8ad5cf1-8bc1-4d2d-8d0f-f9c788cbd663 --reporter mochawesome"
+  },
+  "author": "Sarthak",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^6.7.1",
+    "cypress-file-upload": "^5.0.2",
+    "cypress-iframe": "^1.0.1"
+  },
+  "dependencies": {
+    "cypress-xpath": "^1.6.2",
+    "mocha": "^8.3.2",
+    "mochawesome": "^6.2.2"
+  }
+}

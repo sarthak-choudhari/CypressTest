@@ -1,0 +1,8 @@
+{
+  "name" :"bob",
+  "usr" : "admin",
+  "pswrd" : "manager",
+  "gender":"Female",
+  "productName": ["Blackberry","Nokia Edge"]
+ 
+}
