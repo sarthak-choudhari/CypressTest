@@ -45,10 +45,10 @@ import CheckOutPage from '../pageObject/CheckOutPage'
     product.filterDropdown().select('za').should('have.value','za')
       var b=[];
      // apply after sorting
-    // var a=["Test.allTheThings() T-Shirt (Red)", "Sauce Labs Onesie", "Sauce Labs Fleece Jacket", "Sauce Labs Bolt T-Shirt", "Sauce Labs Bike Light", "Sauce Labs Backpack"]
+    
     product.allProductName().each(($e1, index)=>{
 
-     
+      
       b[index]=$e1.text()
       
     
@@ -56,7 +56,7 @@ import CheckOutPage from '../pageObject/CheckOutPage'
       
     }).then(()=>{
       //verify sorting items 
-     expect(ca).to.deep.equal(b)
+     expect(ca).to.have.ordered.members(b)
      
     })
     // fetching price items before filter 
@@ -83,7 +83,7 @@ import CheckOutPage from '../pageObject/CheckOutPage'
         lowToHigh[index]=Number(res)
     }).then(()=>{
       //verify price item lowToHigh
-      expect(price.sort(function(a,b){return a-b})).to.deep.equal(lowToHigh)
+      expect(price.sort(function(a,b){return a-b})).to.have.ordered.members(lowToHigh)
     })
 
     product.filterDropdown().select('hilo').should('have.value','hilo')
@@ -98,7 +98,7 @@ import CheckOutPage from '../pageObject/CheckOutPage'
         highToLow[index]=Number(res)
     }).then(()=>{
       // //verify price item highToLow
-      expect(price.reverse()).to.deep.equal(highToLow)
+      expect(price.reverse()).to.have.ordered.members(highToLow)
     })
     
   
@@ -152,9 +152,9 @@ import CheckOutPage from '../pageObject/CheckOutPage'
       out.cancel()
       out.finish().click()
       out.successMessage().then((as)=>{
-        
         let actualText=as.text()
         expect(actualText.includes("THANK YOU FOR YOUR ORDER")).to.be.true
+        
       })
       
     })

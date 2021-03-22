@@ -1,9 +1,9 @@
 {
-    "defaultCommandTimeout": 8000,
+  "defaultCommandTimeout": 8000,
   "env": {
     "url": "https://www.saucedemo.com/",
     "name": "standard_user"
-  
   },
-  "reporter":"mochawesome"
+  "reporter": "mochawesome",
+  "projectId": "rki5vb"
 }
