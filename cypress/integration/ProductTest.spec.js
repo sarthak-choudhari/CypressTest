@@ -1,8 +1,8 @@
 /// <reference types="Cypress" />
 
-  import CartPage from '../pageObject/CartPage'
-import LoginPage from '../pageObject/LoginPage'
-import ProductPage from '../pageObject/ProductPage'
+  import CartPage from '../pageObject/Cart.page'
+import LoginPage from '../pageObject/Login.page'
+import ProductPage from '../pageObject/Product.page'
 
   describe('Test Suite',function(){
     before(function(){
@@ -136,7 +136,7 @@ import ProductPage from '../pageObject/ProductPage'
 
     cp.cartItem().should('have.length',2)
 
-    cp.contiuneShopping().should('be.visible')
+    cp.contiuneShopping()
    
     
           cp.itemPrice().each(($e1, index, $list)=>{

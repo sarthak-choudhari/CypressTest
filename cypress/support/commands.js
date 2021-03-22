@@ -25,9 +25,9 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 
-import CartPage from '../pageObject/CartPage'
-import LoginPage from '../pageObject/LoginPage'
-import ProductPage from '../pageObject/ProductPage'
+import CartPage from '../pageObject/Cart.page'
+import LoginPage from '../pageObject/Login.page'
+import ProductPage from '../pageObject/Product.page'
 
 
 Cypress.Commands.add('login', (email, password) => { 
@@ -78,4 +78,20 @@ Cypress.Commands.add("selectProduct", (productName) => {
               cp.removeButton().eq(index).should('be.enabled').click()
               }
           })
+      })
+
+
+       Cypress.Commands.add('sorting', (ca) => {
+        const product=new ProductPage()
+       var ca=[];
+        product.allProductName().each((e1, ind)=>{
+                
+          
+           ca[ind]=e1.text()
+          
+         
+           
+         })
+         return ca
+         
       })

@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-import LoginPage from '../pageObject/LoginPage'
+import LoginPage from '../pageObject/Login.page'
 
 
 describe('Login Page', function() 
@@ -23,10 +23,7 @@ describe('Login Page', function()
        login.userNameField()
        login.passwordField().type(this.data.Password)
        login.loginButton()
-       login.notificationError().then((error)=>{
-        let actualText=error.text()
-       expect(actualText.includes("Username is required")).to.be.true
-    })
+       login.notificationError().should('have.text','Epic sadface: Username is required')
     })
 
     it('Password Validation ',function() {
@@ -36,10 +33,7 @@ describe('Login Page', function()
        login.userNameField().type(this.data.name)
        login.passwordField()
        login.loginButton()
-       login.notificationError().then((error)=>{
-        let actualText=error.text()
-       expect(actualText.includes("Password is required")).to.be.true
-    })
+       login.notificationError().should('have.text','Epic sadface: Password is required')
 })
 
       it('Invalid credentials ',function() {
@@ -49,10 +43,7 @@ describe('Login Page', function()
         login.userNameField().type('aserfgy')
         login.passwordField().type('123adst')
         login.loginButton()
-        login.notificationError().then((error)=>{
-            let actualText=error.text()
-           expect(actualText.includes("Username and password do not match any user in this service")).to.be.true
-        })
+        login.notificationError().should('have.text','Epic sadface: Username and password do not match any user in this service')
      })
 
 

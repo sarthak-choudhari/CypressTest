@@ -1,8 +1,8 @@
 /// <reference types="Cypress" />
 
-import CartPage from '../pageObject/CartPage'
-import ProductPage from '../pageObject/ProductPage'
-import CheckOutPage from '../pageObject/CheckOutPage'
+import CartPage from '../pageObject/Cart.page'
+import ProductPage from '../pageObject/Product.page'
+import CheckOutPage from '../pageObject/CheckOut.page'
 
   describe('Test Suite',function(){
     before(function(){
@@ -27,6 +27,9 @@ import CheckOutPage from '../pageObject/CheckOutPage'
        const out=new CheckOutPage()
       
     cy.login(Cypress.env('name'),this.data.Password)
+     
+    //var qwe=cy.sorting()
+
    
     //apply before sorting
     var ca=[];
@@ -38,6 +41,7 @@ import CheckOutPage from '../pageObject/CheckOutPage'
      
        
      }).then(()=>{
+      
       ca.sort()
       cy.log(ca.reverse())
       
@@ -116,32 +120,19 @@ import CheckOutPage from '../pageObject/CheckOutPage'
       out.nameField().type('Test')
       out.lastName()
       out.continueButton()
-      out.errorMessage().then((as)=>{
-
-        let actualText=as.text()
-        expect(actualText.includes("Last Name is required")).to.be.true
-      })
+      out.errorMessage().should('have.text','Error: Last Name is required')
     
        //Validate Checkout LastName Field
    
       out.nameField().clear()
       out.lastName().type('Test')
       out.continueButton()
-      out.errorMessage().then((as)=>{
-
-        let actualText=as.text()
-        expect(actualText.includes("First Name is required")).to.be.true
-
-      })
+      out.errorMessage().should('have.text','Error: First Name is required')
         // Validate Checkout zipcode Field
    
       out.nameField().type('Testing')
       out.continueButton()
-      out.errorMessage().then((as)=>{
-
-        let actualText=as.text()
-        expect(actualText.includes("Postal Code is required")).to.be.true
-      })
+      out.errorMessage().should('have.text','Error: Postal Code is required')
 
       //valid checkou field
       out.nameField().clear().type('Test')
@@ -151,11 +142,7 @@ import CheckOutPage from '../pageObject/CheckOutPage'
 
       out.cancel()
       out.finish().click()
-      out.successMessage().then((as)=>{
-        let actualText=as.text()
-        expect(actualText.includes("THANK YOU FOR YOUR ORDER")).to.be.true
-        
-      })
+      out.successMessage().should('have.text','THANK YOU FOR YOUR ORDER')
       
     })
 
