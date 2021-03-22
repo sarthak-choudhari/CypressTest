@@ -1,0 +1,157 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-03-22T04:14:17.741Z",
+    "end": "2021-03-22T04:14:53.334Z",
+    "duration": 35593,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e611e98b-f963-41f9-887a-3295755f2da6",
+      "title": "",
+      "fullFile": "cypress\\integration\\LoginTest.js",
+      "file": "cypress\\integration\\LoginTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1edeca7e-9411-47c1-8ece-d4c551e57ad0",
+          "title": "Login Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "UserName Validation ",
+              "fullTitle": "Login Page UserName Validation ",
+              "timedOut": null,
+              "duration": 9045,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "login.userNameField();\nlogin.passwordField().type(this.data.Password);\nlogin.loginButton();\nlogin.notificationError().then(function (error) {\n  var actualText = error.text();\n  expect(actualText.includes(\"Username is required\")).to.be[\"true\"];\n});",
+              "err": {},
+              "uuid": "ab2b1f81-df61-4355-811e-8642ee56fe27",
+              "parentUUID": "1edeca7e-9411-47c1-8ece-d4c551e57ad0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Password Validation ",
+              "fullTitle": "Login Page Password Validation ",
+              "timedOut": null,
+              "duration": 4501,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "login.userNameField().type(this.data.name);\nlogin.passwordField();\nlogin.loginButton();\nlogin.notificationError().then(function (error) {\n  var actualText = error.text();\n  expect(actualText.includes(\"Password is required\")).to.be[\"true\"];\n});",
+              "err": {},
+              "uuid": "b3468e9e-5da7-47d5-8b34-27010d2b3ad5",
+              "parentUUID": "1edeca7e-9411-47c1-8ece-d4c551e57ad0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Invalid credentials ",
+              "fullTitle": "Login Page Invalid credentials ",
+              "timedOut": null,
+              "duration": 3987,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "login.userNameField().type('aserfgy');\nlogin.passwordField().type('123adst');\nlogin.loginButton();\nlogin.notificationError().then(function (error) {\n  var actualText = error.text();\n  expect(actualText.includes(\"Username and password do not match any user in this service\")).to.be[\"true\"];\n});",
+              "err": {},
+              "uuid": "cce773a2-1098-4632-8de2-003f85a22948",
+              "parentUUID": "1edeca7e-9411-47c1-8ece-d4c551e57ad0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Stander_user Login ",
+              "fullTitle": "Login Page Stander_user Login ",
+              "timedOut": null,
+              "duration": 6435,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login(Cypress.env('name'), this.data.Password);",
+              "err": {},
+              "uuid": "73076060-b1d5-462f-a622-3864a4fd2f52",
+              "parentUUID": "1edeca7e-9411-47c1-8ece-d4c551e57ad0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ab2b1f81-df61-4355-811e-8642ee56fe27",
+            "b3468e9e-5da7-47d5-8b34-27010d2b3ad5",
+            "cce773a2-1098-4632-8de2-003f85a22948",
+            "73076060-b1d5-462f-a622-3864a4fd2f52"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 23968,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.2.0"
+    }
+  }
+}
