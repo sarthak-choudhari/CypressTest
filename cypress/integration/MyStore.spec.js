@@ -29,7 +29,10 @@ beforeEach(function(){
      cy.compareSnapshot('product', 0.1);
 
     
-        
+    //  cy.compareSnapshot('Tshirt', {
+    //   capture: 'fullPage',
+    //   errorThreshold: 0.1
+    // });
         
       })
       
