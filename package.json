@@ -17,6 +17,7 @@
     "mochawesome": "^6.2.2"
   },
   "dependencies": {
+    "cypress-visual-regression": "^1.5.7",
     "cypress-xpath": "^1.6.2"
   }
 }

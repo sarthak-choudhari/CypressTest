@@ -1,9 +1,14 @@
 {
   "defaultCommandTimeout": 8000,
   "env": {
+    "failSilently": false,
     "url": "https://www.saucedemo.com/",
     "name": "standard_user"
   },
+  
+  "screenshotsFolder": "./cypress/snapshots/actual",
+    "trashAssetsBeforeRuns": true,
+
   "reporter": "mochawesome",
   "projectId": "rki5vb"
 }

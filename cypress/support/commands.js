@@ -27,10 +27,20 @@
 
 import CartPage from '../pageObject/Cart.page'
 import LoginPage from '../pageObject/Login.page'
+import HomePage from '../pageObject/MyStoreHome.page'
 import ProductPage from '../pageObject/Product.page'
 
 
 Cypress.Commands.add('login', (email, password) => { 
+    const hom=new HomePage()
+    hom.sinIn()
+    hom.userName(email)   
+    hom.password(password)
+    hom.logIn()
+
+})
+
+Cypress.Commands.add('SinIn', (email, password) => { 
     const login=new LoginPage()
     login.userNameField().type(email)
     login.passwordField().type(password)
@@ -95,3 +105,9 @@ Cypress.Commands.add("selectProduct", (productName) => {
          return ca
          
       })
+
+      const compareSnapshotCommand = require('cypress-visual-regression/dist/command');
+
+      compareSnapshotCommand({
+        // capture: 'fullPage'
+      });
